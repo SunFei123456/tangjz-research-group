@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>招生信息 - 汤继周课题组</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- jQuery (导航栏需要) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- 公共样式 (导航栏和底部) -->
+    <link rel="stylesheet" href="common.css">
+
+    <style>
+       
+
+
+        /* 主容器 */
+        .container {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* 页面标题 */
+        .page-header {
+            background: linear-gradient(135deg, #0a5aa8 0%, #1565C0 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+            border: 2px solid #0a5aa8;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* 招生信息容器 */
+        .recruitment-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        /* 招生卡片 */
+        .recruitment-card {
+            background: white;
+            border-radius: 8px;
+            padding: 0;
+            border: 1px solid #e0e0e0;
+            overflow: hidden;
+        }
+
+        /* 卡片标题 */
+        .recruitment-title {
+            background: linear-gradient(135deg, #0a5aa8 0%, #1565C0 100%);
+            color: white;
+            padding: 15px 25px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* 卡片内容区 */
+        .recruitment-content {
+            padding: 25px;
+        }
+
+        /* 列表项 */
+        .recruitment-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .recruitment-item {
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .recruitment-item::before {
+            content: "• ";
+            color: #0a5aa8;
+            font-weight: bold;
+            font-size: 18px;
+            margin-right: 8px;
+        }
+
+        /* 段落文本 */
+        .recruitment-text {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            font-size: 15px;
+            padding: 0 15px;
+        }
+
+        /* 强调文本 */
+        .recruitment-text strong {
+            color: #0a5aa8;
+            font-weight: 600;
+        }
+
+        /* 红色强调 */
+        .red-text {
+            color: #D32F2F;
+            font-weight: 600;
+        }
+
+        /* 章节标题 */
+        .section-number {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0a5aa8;
+            margin-bottom: 15px;
+            padding: 0 15px;
+        }
+
+        /* 联系方式卡片 */
+        .contact-card {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            background: white;  
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 30px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .contact-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-item {
+            padding: 12px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-item i {
+            margin-right: 15px;
+            font-size: 1.3rem;
+        }
+
+        .contact-item a {
+            color: #1a1a1a;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #0a5aa8;
+        }
+
+        /* 网站链接 */
+        .website-links {
+            background: white;
+            border-radius: 8px;
+            padding: 15px 20px;
+            border: 1px solid #1565C0;
+            margin: 1rem 0rem;
+        }
+
+        .website-links p {
+            margin: 8px 0;
+            line-height: 1.8;
+        }
+
+        .website-links a {
+            color: #0a5aa8;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        .website-links a:hover {
+            color: #1565C0;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .page-header {
+                padding: 20px;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .page-subtitle {
+                font-size: 1rem;
+            }
+
+            .recruitment-title {
+                font-size: 1.2rem;
+                padding: 12px 20px;
+            }
+
+            .recruitment-content {
+                padding: 20px;
+            }
+
+            .recruitment-item,
+            .recruitment-text {
+                font-size: 14px;
+            }
+
+            .contact-card {
+                padding: 20px;
+            }
+
+            .contact-title {
+                font-size: 1.3rem;
+            }
+
+            .contact-item {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 现代化导航栏 -->
+    <nav class="navbar navbar-expand-custom navbar-mainbg">
+        <div class="navbar-brand navbar-logo" href="#">
+            <img src="images/logo.png" alt="同济大学Logo">
+            <span>汤继周课题组</span>
+        </div>
+        <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa-bars text-white"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="hori-selector">
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html"><i class="fas fa-home"></i>基本情况</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="research.html"><i class="fas fa-search"></i>研究方向</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="achievements.html"><i class="fas fa-trophy"></i>科研成果</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team.html"><i class="fas fa-users"></i>团队成员</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="recruitment.html"><i class="fas fa-graduation-cap"></i>招生信息</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="other.html"><i class="fas fa-ellipsis-h"></i>其他</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="page-header">
+            <h1 class="page-title">同济大学MIAS Group招生招聘组则（2025年2月更新）</h1>
+            <p class="page-subtitle">诚邀优秀的你加入入我们，共同探索前沿科技，开拓创新未来！</p>
+        </div>
+
+        <!-- 网站链接 -->
+        <div class="website-links">
+            <p><strong>我的中文主页：</strong><a href="http://see.tongji.edu.cn/info/1376/10427.htm"
+                    target="_blank">see.tongji.edu.cn/info/1376/10427.htm</a></p>
+            <p><strong>我的英文主页：</strong><a href="https://www.ruirangerfan.com"
+                    target="_blank">www.ruirangerfan.com</a>（部编在github，建议使用科学上网工具）</p>
+            <p><strong>课题组主页：</strong><a href="https://mias.group" target="_blank">mias.group</a></p>
+        </div>
+
+        <div class="recruitment-container">
+            <!-- 博士研究生 -->
+            <div class="recruitment-card">
+                <h2 class="recruitment-title">一、博士研究生：</h2>
+                <div class="recruitment-content">
+                    <ul class="recruitment-list">
+                        <li class="recruitment-item">一般情况下，我每年招收<strong>2名博士生</strong>。</li>
+                        <li class="recruitment-item">通常仅考虑已经在<strong>CCF推荐期刊/会议或IEEE/ACM/ASME
+                                Trans.</strong>上发表过<strong>一作论文</strong>的同学。</li>
+                        <li class="recruitment-item">
+                            目前，我对两类学生非常感兴趣：<strong>1）受挫型：冲985/211不顺的（例如出身于工科强校）</strong>，<strong>2）回流型：志在名企工作但回国发展（心理管理能力、内容理解）</strong>，<strong>3）新概念机器人（新结构、新专感知、新算法等）</strong>
+                        </li>
+                        <li class="recruitment-item">
+                            实验室（实验室5.5年），并不要求其博士前（在教室），可将任何人（学标94年）可联系我且与信息工学院取或自主倾向无关AI算室系统，利用中心（在张CT）</li>
+                        <li class="recruitment-item">我强烈赞同以创造性挑战，层层深根大且找措，你又攻实的过科与开动力！</li>
+                        <li class="recruitment-item">我希望往进入的优水级：<strong>性愿>能力>>成就、努力>天赋</strong>。</li>
+                        <li class="recruitment-item"><span
+                                class="red-text">请通过这个链接申请（提交后会自即时通知我），勿直接发送邮件，因为一封问历和大段的文章不足以让我全面了解你的！</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 硕士研究生 -->
+            <div class="recruitment-card">
+                <h2 class="recruitment-title">二、硕士研究生：</h2>
+                <div class="recruitment-content">
+                    <ul class="recruitment-list">
+                        <li class="recruitment-item">
+                            一般情况下，我每年有<strong>3-4个硕士生名额</strong>。往我并不会为了用满名额而招生，因以年实际录取人数可能会少于计划招生人数。我今年已上生本科机器人或相关专业人数有少于计划招生人数。
+                        </li>
+                        <li class="recruitment-item">
+                            目前，我更看重招收两类学生：往对两能学生非产品是兴趣：<strong>1）天赋型：聪明但不太全力以赴（目标方向只要能找到上限一个合适工作即可）</strong>，<strong>2）勤奋型：不一定特别聪明但愿意努力的（希望通过系科研的努力往上层关系）</strong>。
+                        </li>
+                        <li class="recruitment-item">我这个看研的具规则情可第2方实第1（满问时旧凸月并不和工机器）由能排至关条往大业已。相比能力论大且找措，我实多半仍为你实到力！
+                        </li>
+                        <li class="recruitment-item">
+                            本科不支持研究生以上学历入主课题组、尝受学术等工学院取或基预生已（学年作），西胸生（学标94年）可联系我且与信息工学院取或自主倾向无关AI算教策动， 利用中心（在张CT）</li>
+                        <li class="recruitment-item">我希望往进入的优水级：<strong>性愿>能力>>成就、努力>天赋</strong>。</li>
+                        <li class="recruitment-item">如果同济大学和IMIAS Group不是你的第一选择，我空元无浪费学校出补的招生名额。</li>
+                        <li class="recruitment-item"><span
+                                class="red-text">请通过这个链接申请（提交后会自即时通知我），勿直接发送邮件，因为一封问历和大段的文章不足以让我全面了解你的！</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 博士后 -->
+            <div class="recruitment-card">
+                <h2 class="recruitment-title">三、博士后：</h2>
+                <div class="recruitment-content">
+                    <ul class="recruitment-list">
+                        <li class="recruitment-item">
+                            我希望优秀依实加入课题组的几年里，能够积极努近距离的科研成果，为未来的发展奠定坚实基础。同时，我也期望你能留校、长期共事，这需要我们共同努力！</li>
+                        <li class="recruitment-item">
+                            目前，我对两类学生非常感兴趣上后：<strong>1）多概念传感器外参标定、2）感知与运动位姿矫量（空间理解、内容理解）、3）新概念机器人（新结构、新专感知、新算法等）</strong>
+                        </li>
+                        <li class="recruitment-item">
+                            博士后实行年薪制<strong>新基30万</strong>（课题组目均起步，上限根据优秀么/<strong>TOTJ/~、~，希望我能能更则更多funding，发垫更多工资</strong>），另有学术成果奖如在其木本新基础上根据年度成果内增补。
+                        </li>
+                        <li class="recruitment-item">实持申请：1）上海市"超级博士后"等博士后人才计划。因实自然科学青年基金以及其它因裹与地方的科技项目和博士后资助项目。</li>
+                        <li class="recruitment-item">博士后可以选择住生校园内后公寓，亭受校工门等的医疗保陆专询，入站即可获得上海集体户口，子女可入读同济大学幼儿园。</li>
+                        <li class="recruitment-item"><span
+                                class="red-text">请通过这个链接申请（提交后会自即时通知我），……………文章不足以让我全面了解你的！</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 本科实习生 -->
+            <div class="recruitment-card">
+                <h2 class="recruitment-title">四、本科实习生：</h2>
+                <div class="recruitment-content">
+                    <p class="recruitment-text">
+                        随着近年来课题组的不断发展，我目前于每年本………………………………………2025年9月起，申请加入课题组的本科实习生必须先完成随前机构的同学，我将优先排列实验室的研究课题。</p>
+                    <p class="recruitment-text red-text">请通过这个链接申请（提交后会自即时通知我）</p>
+                </div>
+            </div>
+
+            <!-- 研究助理 -->
+            <div class="recruitment-card">
+                <h2 class="recruitment-title">五、研究助理：</h2>
+                <div class="recruitment-content">
+                    <ul class="recruitment-list">
+                        <li class="recruitment-item">研究助理岗位为<strong class="red-text">全职工作，工资不低于6500元/月（包括五险一金）</strong>。
+                        </li>
+                        <li class="recruitment-item">召募报名本科课题组科研/博士硕士研究生者优先。</li>
+                        <li class="recruitment-item">大约一二年时间需要国领域院课题组的项目开展工作。</li>
+                        <li class="recruitment-item">你可以直接授受该岗位年实。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 联系方式 -->
+        <div class="contact-card">
+            <h2 class="contact-title">联系方式</h2>
+            <ul class="contact-list">
+                <li class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>021-65982273</span>
+                </li>
+                <li class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:jeremytang@tongji.edu.cn">jeremytang@tongji.edu.cn</a>
+                </li>
+                <li class="contact-item">
+                    <i class="fas fa-building"></i>
+                    <a href="https://mgg.tongji.edu.cn" target="_blank">https://mgg.tongji.edu.cn</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-main">
+            <p>© 2025 汤继周课题组 | Tongji University | All Rights Reserved</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">隐私政策</a>
+                <a href="#" class="footer-link">使用条款</a>
+                <a href="#" class="footer-link">网站地图</a>
+                <a href="#" class="footer-link">联系我们</a>
+            </div>
+            <p style="margin-top: 10px; font-size: 12px; opacity: 0.7;">
+                地址：上海市杨浦区四平路同济大学海洋楼40X里屋 &nbsp; | &nbsp; 技术支持：400-1234567
+            </p>
+        </div>
+    </footer>
+
+    <!-- 主要JavaScript文件 -->
+    <script src="main.js"></script>
+</body>
+
+</html>

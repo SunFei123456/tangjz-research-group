@@ -13,38 +13,15 @@
     <link rel="stylesheet" href="common.css">
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        a {
-            text-decoration: none;
-            color: #1a1a1a;
-        }
-
-        body {
-            font-family: "Microsoft YaHei", Arial, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-
         /* 主容器 */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 30px auto;
+            gap: 1rem;
             padding: 0 20px;
         }
 
-        /* 页面标题 */
-        .page-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #0a5aa8;
-            margin-bottom: 3rem;
-            font-weight: 600;
-        }
+
 
         /* 研究方向卡片 */
         .research-card {
@@ -52,40 +29,36 @@
             border-radius: 12px;
             padding: 40px;
             margin-bottom: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             border: 1px solid #e0e0e0;
         }
 
         .research-title {
-            font-size: 1.8rem;
-            color: #0a5aa8;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: white;
+            background: linear-gradient(135deg, #0a5aa8 0%, #1565C0 100%);
+            padding: 15px 25px;
+            margin-bottom: 25px;
             font-weight: 600;
-            border-bottom: 3px solid #0a5aa8;
-            padding-bottom: 10px;
+            border-radius: 8px;
         }
 
         .research-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            /* 改变排列方向 */
+            flex-direction: column;
             gap: 30px;
             align-items: start;
-        }
-
-        .research-text {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #333;
+            width: 100%;
         }
 
         .research-text ul {
-            margin: 20px 0;
             padding-left: 20px;
         }
 
         .research-text li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             position: relative;
+            padding-left: 20px;
         }
 
         .research-text li::before {
@@ -93,7 +66,8 @@
             color: #0a5aa8;
             font-weight: bold;
             position: absolute;
-            left: -15px;
+            left: 0;
+            font-size: 20px;
         }
 
         .research-images {
@@ -105,7 +79,7 @@
         .research-image {
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
         }
 
         .research-image img {
@@ -114,88 +88,48 @@
             display: block;
         }
 
-        .research-image.large {
-            grid-column: 1 / -1;
+
+
+        /* 第二个研究方向的特殊图片布局 */
+        .research-images-ai {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr) 2fr;
+            gap: 15px;
         }
 
-        .image-caption {
-            background: #f8f9fa;
-            padding: 10px;
-            font-size: 14px;
-            color: #666;
-            text-align: center;
-            border-top: 1px solid #e0e0e0;
+        .research-images-ai .research-image {
+            height: 100%;
         }
+
+        .research-images-ai .research-image img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+
 
         /* 地质存储类型特殊布局 */
         .storage-types {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 20px;
+            gap: 15px;
         }
 
         .storage-type {
-            text-align: center;
-            background: #f8f9fa;
-            padding: 20px;
             border-radius: 8px;
-            border: 2px solid #e0e0e0;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
         }
 
         .storage-type img {
             width: 100%;
-            height: 200px;
+            height: 300px;
             object-fit: cover;
-            border-radius: 6px;
-            margin-bottom: 10px;
+            display: block;
         }
 
-        .storage-type h4 {
-            color: #0a5aa8;
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
 
-        .storage-type p {
-            font-size: 14px;
-            color: #666;
-        }
 
-        /* AI应用研究特殊布局 */
-        .ai-workflow {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .workflow-step {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #0a5aa8;
-        }
-
-        .workflow-step h4 {
-            color: #0a5aa8;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .workflow-step img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 6px;
-            margin-bottom: 10px;
-        }
-
-        .workflow-step p {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
-        }
 
         /* 响应式设计 */
         @media (max-width: 1024px) {
@@ -208,9 +142,11 @@
                 grid-template-columns: 1fr;
             }
 
-            .ai-workflow {
-                grid-template-columns: 1fr;
+            .research-images-ai {
+                grid-template-columns: 1fr 1fr;
             }
+
+
         }
 
         @media (max-width: 768px) {
@@ -218,10 +154,6 @@
                 padding: 0 15px;
             }
 
-            .page-title {
-                font-size: 2rem;
-                margin-bottom: 2rem;
-            }
 
             .research-card {
                 padding: 25px;
@@ -267,16 +199,16 @@
                     <a class="nav-link" href="research.html"><i class="fas fa-search"></i>研究方向</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-trophy"></i>科研成果</a>
+                    <a class="nav-link" href="achievements.html"><i class="fas fa-trophy"></i>科研成果</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-users"></i>团队成员</a>
+                    <a class="nav-link" href="team.html"><i class="fas fa-users"></i>团队成员</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-graduation-cap"></i>招生信息</a>
+                    <a class="nav-link" href="recruitment.html"><i class="fas fa-graduation-cap"></i>招生信息</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-ellipsis-h"></i>其他</a>
+                    <a class="nav-link" href="other.html"><i class="fas fa-ellipsis-h"></i>其他</a>
                 </li>
             </ul>
         </div>
@@ -284,14 +216,13 @@
 
     <!-- 主容器 -->
     <div class="container">
-        <h1 class="page-title">研究方向</h1>
+
 
         <!-- 研究方向一：地下储能及二氧化碳封存机理研究 -->
         <div class="research-card">
             <h2 class="research-title">一、地下储能(储氢、储氦、储气)及二氧化碳封存机理研究</h2>
             <div class="research-content">
                 <div class="research-text">
-                    <p>本研究方向聚焦地下储能技术和二氧化碳地质封存机理，为清洁能源储存和碳减排提供科学支撑。</p>
                     <ul>
                         <li>地下储氢库选址评价与安全运行机制</li>
                         <li>储气库多相流体运移规律与优化设计</li>
@@ -299,30 +230,18 @@
                         <li>深部储层岩石力学特性与多物理场耦合</li>
                     </ul>
                 </div>
-                <div class="research-images">
-                    <div class="research-image large">
-                        <img src="http://iph.href.lu/800x400" alt="地下储能技术示意图">
-                        <div class="image-caption">地下储能技术示意图</div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- 地质存储类型 -->
-            <div class="storage-types">
-                <div class="storage-type">
-                    <img src="http://iph.href.lu/300x200" alt="盐穴储氢">
-                    <h4>盐穴储氢</h4>
-                    <p>利用地下盐层溶解形成的洞穴进行氢气储存，具有密封性好、容量大的特点。</p>
-                </div>
-                <div class="storage-type">
-                    <img src="http://iph.href.lu/300x200" alt="枯竭油气藏">
-                    <h4>枯竭油气藏</h4>
-                    <p>利用已开采完毕的油气藏进行气体储存，地质条件相对稳定。</p>
-                </div>
-                <div class="storage-type">
-                    <img src="http://iph.href.lu/300x200" alt="含水层储气">
-                    <h4>含水层储气</h4>
-                    <p>利用地下含水层进行气体储存，适用于大规模储气需求。</p>
+                <!-- 地质存储类型 -->
+                <div class="storage-types">
+                    <div class="storage-type">
+                        <img src="http://iph.href.lu/400x200" alt="地质存储类型1">
+                    </div>
+                    <div class="storage-type">
+                        <img src="http://iph.href.lu/400x200" alt="地质存储类型2">
+                    </div>
+                    <div class="storage-type">
+                        <img src="http://iph.href.lu/400x200" alt="地质存储类型3">
+                    </div>
                 </div>
             </div>
         </div>
@@ -332,7 +251,6 @@
             <h2 class="research-title">二、人工智能在非常规油气勘探开发应用研究</h2>
             <div class="research-content">
                 <div class="research-text">
-                    <p>将人工智能技术应用于非常规油气资源勘探开发，提高勘探效率和开发效果。</p>
                     <ul>
                         <li>基于深度学习的测井解释与储层评价</li>
                         <li>AI驱动的压裂优化设计与效果预测</li>
@@ -340,39 +258,21 @@
                         <li>智能决策系统在非常规油气开发中的集成应用</li>
                     </ul>
                 </div>
-                <div class="research-images">
-                    <div class="research-image">
-                        <img src="http://iph.href.lu/400x300" alt="测井解释系统">
-                        <div class="image-caption">测井解释系统</div>
-                    </div>
-                    <div class="research-image">
-                        <img src="http://iph.href.lu/400x300" alt="电子扫描技术">
-                        <div class="image-caption">电子扫描技术</div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- AI工作流程 -->
-            <div class="ai-workflow">
-                <div class="workflow-step">
-                    <h4>步骤1：EIL数据预处理</h4>
-                    <img src="http://iph.href.lu/400x150" alt="数据预处理">
-                    <p>对电成像测井数据进行扫描、切片、二值化等预处理操作，为后续分析提供高质量数据。</p>
-                </div>
-                <div class="workflow-step">
-                    <h4>步骤2：路径图构建</h4>
-                    <img src="http://iph.href.lu/400x150" alt="路径图构建">
-                    <p>将像素级节点转换为原始图，再构建裂缝路径图，并进行图检查和冗余节点移除。</p>
-                </div>
-                <div class="workflow-step">
-                    <h4>步骤3：GCL驱动的路径图匹配</h4>
-                    <img src="http://iph.href.lu/400x150" alt="图匹配">
-                    <p>使用图对比学习(GCL)驱动的裂缝匹配模型，结合GCN网络进行节点标签匹配。</p>
-                </div>
-                <div class="workflow-step">
-                    <h4>步骤4：节点重组与裂缝识别</h4>
-                    <img src="http://iph.href.lu/400x150" alt="裂缝识别">
-                    <p>基于节点重组构建综合裂缝图(IFGs)，进行裂缝类型识别和关键参数计算。</p>
+                <!-- AI研究图片布局 -->
+                <div class="research-images-ai">
+                    <div class="research-image">
+                        <img src="http://iph.href.lu/250x200" alt="测井解释系统">
+                    </div>
+                    <div class="research-image">
+                        <img src="http://iph.href.lu/250x200" alt="仪器">
+                    </div>
+                    <div class="research-image">
+                        <img src="http://iph.href.lu/250x200" alt="电子扫描">
+                    </div>
+                    <div class="research-image">
+                        <img src="http://iph.href.lu/600x620" alt="AI工作流程图">
+                    </div>
                 </div>
             </div>
         </div>

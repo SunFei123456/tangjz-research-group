@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>团队成员 - 汤继周课题组</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- jQuery (导航栏需要) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- 公共样式 (导航栏和底部) -->
+    <link rel="stylesheet" href="common.css">
+
+    <style>
+        /* 主容器 */
+        .container {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* 团队板块容器 */
+        .team-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        /* 团队板块 */
+        .team-section {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* 板块标题 */
+        .team-section-title {
+            background: linear-gradient(135deg, #0a5aa8 0%, #1565C0 100%);
+            color: white;
+            padding: 15px 25px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* 板块内容 */
+        .team-section-content {
+            padding: 30px;
+        }
+
+        /* 成员网格布局 */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* 教授卡片 - 特殊样式 */
+        .professor-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+        }
+
+        .professor-photo {
+            width: 200px;
+            height: 280px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .professor-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .professor-name {
+            font-size: 1.8rem;
+            color: #0a5aa8;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .professor-title {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .professor-honor {
+            font-size: 1rem;
+            color: #D32F2F;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* 学生卡片 */
+        .member-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .member-card:hover {
+            box-shadow: 0 4px 12px rgba(10, 90, 168, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .member-photo {
+            width: 100%;
+            height: 200px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-name {
+            font-size: 1.3rem;
+            color: #0a5aa8;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .member-info {
+            font-size: 0.9rem;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .member-info p {
+            margin: 5px 0;
+        }
+
+        .member-status {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .member-degree {
+            color: #0a5aa8;
+            font-weight: 500;
+        }
+
+        .member-contact {
+            color: #1565C0;
+            word-break: break-all;
+        }
+
+        .member-research {
+            color: #555;
+        }
+
+        /* 已毕业标签 */
+        .graduated-tag {
+            display: inline-block;
+            background: #4caf50;
+            color: white;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .members-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .team-section-title {
+                font-size: 1.3rem;
+                padding: 12px 20px;
+            }
+
+            .team-section-content {
+                padding: 20px;
+            }
+
+            .members-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .professor-photo {
+                width: 180px;
+                height: 250px;
+            }
+
+            .professor-name {
+                font-size: 1.5rem;
+            }
+
+            .member-name {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 现代化导航栏 -->
+    <nav class="navbar navbar-expand-custom navbar-mainbg">
+        <div class="navbar-brand navbar-logo" href="#">
+            <img src="images/logo.png" alt="同济大学Logo">
+            <span>汤继周课题组</span>
+        </div>
+        <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa-bars text-white"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="hori-selector">
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html"><i class="fas fa-home"></i>基本情况</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="research.html"><i class="fas fa-search"></i>研究方向</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="achievements.html"><i class="fas fa-trophy"></i>科研成果</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="team.html"><i class="fas fa-users"></i>团队成员</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="recruitment.html"><i class="fas fa-graduation-cap"></i>招生信息</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="other.html"><i class="fas fa-ellipsis-h"></i>其他</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <div class="team-container">
+            <!-- 教授团队 -->
+            <div class="team-section">
+                <h2 class="team-section-title">教授团队</h2>
+                <div class="team-section-content">
+                    <div class="members-grid">
+                        <div class="professor-card">
+                            <div class="professor-photo">
+                                <img src="http://iph.href.lu/200x280" alt="汤继周教授">
+                            </div>
+                            <h3 class="professor-name">汤继周</h3>
+                            <p class="professor-title">教授 | 博导 | xxx</p>
+                            <p class="professor-honor">国家级青年人才</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 博士生 -->
+            <div class="team-section">
+                <h2 class="team-section-title">博士生</h2>
+                <div class="team-section-content">
+                    <div class="members-grid">
+                        <!-- 博士生1 -->
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <img src="http://iph.href.lu/280x200" alt="博士生照片">
+                            </div>
+                            <h3 class="member-name">张三<span class="graduated-tag">已毕业</span></h3>
+                            <div class="member-info">
+                                <p class="member-status">某阶段中</p>
+                                <p class="member-degree">本科毕业于XX大学</p>
+                                <p class="member-degree">硕士毕业于XX大学</p>
+                                <p>毕业去向：XXXXX</p>
+                                <p class="member-contact">联系方式：XXXXXX@tj.edu.cn</p>
+                                <p class="member-research">研究方向：XXXXXXXX</p>
+                            </div>
+                        </div>
+
+                        <!-- 博士生2 -->
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <img src="http://iph.href.lu/280x200" alt="博士生照片">
+                            </div>
+                            <h3 class="member-name">李四</h3>
+                            <div class="member-info">
+                                <p class="member-status">某阶段中</p>
+                                <p class="member-degree">本科毕业于XX大学</p>
+                                <p class="member-degree">硕士毕业于XX大学</p>
+                                <p class="member-contact">联系方式：XXXXXX@tj.edu.cn</p>
+                                <p class="member-research">研究方向：XXXXXXXX</p>
+                            </div>
+                        </div>
+
+                        <!-- 博士生3 -->
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <img src="http://iph.href.lu/280x200" alt="博士生照片">
+                            </div>
+                            <h3 class="member-name">王五</h3>
+                            <div class="member-info">
+                                <p class="member-status">某阶段中</p>
+                                <p class="member-degree">本科毕业于XX大学</p>
+                                <p class="member-degree">硕士毕业于XX大学</p>
+                                <p class="member-contact">联系方式：XXXXXX@tj.edu.cn</p>
+                                <p class="member-research">研究方向：XXXXXXXX</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 硕士生 -->
+            <div class="team-section">
+                <h2 class="team-section-title">硕士生</h2>
+                <div class="team-section-content">
+                    <div class="members-grid">
+                        <!-- 硕士生1 -->
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <img src="http://iph.href.lu/280x200" alt="硕士生照片">
+                            </div>
+                            <h3 class="member-name">赵六</h3>
+                            <div class="member-info">
+                                <p class="member-status">某阶段中</p>
+                                <p class="member-degree">本科毕业于XX大学</p>
+                                <p class="member-contact">联系方式：XXXXXX@tj.edu.cn</p>
+                                <p class="member-research">研究方向：XXXXXXXX</p>
+                            </div>
+                        </div>
+
+                        <!-- 硕士生2 -->
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <img src="http://iph.href.lu/280x200" alt="硕士生照片">
+                            </div>
+                            <h3 class="member-name">钱七</h3>
+                            <div class="member-info">
+                                <p class="member-status">某阶段中</p>
+                                <p class="member-degree">本科毕业于XX大学</p>
+                                <p class="member-contact">联系方式：XXXXXX@tj.edu.cn</p>
+                                <p class="member-research">研究方向：XXXXXXXX</p>
+                            </div>
+                        </div>
+
+                        <!-- 硕士生3 -->
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <img src="http://iph.href.lu/280x200" alt="硕士生照片">
+                            </div>
+                            <h3 class="member-name">孙八</h3>
+                            <div class="member-info">
+                                <p class="member-status">某阶段中</p>
+                                <p class="member-degree">本科毕业于XX大学</p>
+                                <p class="member-contact">联系方式：XXXXXX@tj.edu.cn</p>
+                                <p class="member-research">研究方向：XXXXXXXX</p>
+                            </div>
+                        </div>
+
+                        <!-- 硕士生4 -->
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <img src="http://iph.href.lu/280x200" alt="硕士生照片">
+                            </div>
+                            <h3 class="member-name">周九</h3>
+                            <div class="member-info">
+                                <p class="member-status">某阶段中</p>
+                                <p class="member-degree">本科毕业于XX大学</p>
+                                <p class="member-contact">联系方式：XXXXXX@tj.edu.cn</p>
+                                <p class="member-research">研究方向：XXXXXXXX</p>
+                            </div>
+                        </div>
+
+                        <!-- 硕士生5 -->
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <img src="http://iph.href.lu/280x200" alt="硕士生照片">
+                            </div>
+                            <h3 class="member-name">吴十</h3>
+                            <div class="member-info">
+                                <p class="member-status">某阶段中</p>
+                                <p class="member-degree">本科毕业于XX大学</p>
+                                <p class="member-contact">联系方式：XXXXXX@tj.edu.cn</p>
+                                <p class="member-research">研究方向：XXXXXXXX</p>
+                            </div>
+                        </div>
+
+                        <!-- 硕士生6 -->
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <img src="http://iph.href.lu/280x200" alt="硕士生照片">
+                            </div>
+                            <h3 class="member-name">郑十一</h3>
+                            <div class="member-info">
+                                <p class="member-status">某阶段中</p>
+                                <p class="member-degree">本科毕业于XX大学</p>
+                                <p class="member-contact">联系方式：XXXXXX@tj.edu.cn</p>
+                                <p class="member-research">研究方向：XXXXXXXX</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-main">
+            <p>© 2025 汤继周课题组 | Tongji University | All Rights Reserved</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">隐私政策</a>
+                <a href="#" class="footer-link">使用条款</a>
+                <a href="#" class="footer-link">网站地图</a>
+                <a href="#" class="footer-link">联系我们</a>
+            </div>
+            <p style="margin-top: 10px; font-size: 12px; opacity: 0.7;">
+                地址：上海市杨浦区四平路同济大学海洋楼40X里屋 &nbsp; | &nbsp; 技术支持：400-1234567
+            </p>
+        </div>
+    </footer>
+
+    <!-- 主要JavaScript文件 -->
+    <script src="main.js"></script>
+</body>
+
+</html>
