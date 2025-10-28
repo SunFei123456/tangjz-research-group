@@ -251,3 +251,13 @@ li{
   color: #ffd700;
   font-weight: bold;
 }
+
+
+/* 移动端 优化导航栏细节处理 */
+@media (max-width: 768px) {
+
+  #navbarSupportedContent ul li a{
+    padding: 10px;
+    font-size: 14px;
+  }
+}

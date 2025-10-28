@@ -75,25 +75,31 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 0;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
         }
 
         .professor-photo {
-            width: 268px;
+            width: 100%;
             border-radius: 8px;
+            margin-bottom: 15px;
             overflow: hidden;
-            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .professor-photo img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             background-position: center;
         }
 
         .professor-name {
-            font-size: 1.8rem;
+            font-size: 1.3rem;
             color: #0a5aa8;
             font-weight: 600;
             margin-bottom: 10px;
@@ -101,14 +107,14 @@
         }
 
         .professor-title {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #666;
             margin-bottom: 5px;
             text-align: center;
         }
 
         .professor-honor {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #D32F2F;
             font-weight: 600;
             text-align: center;
@@ -161,6 +167,11 @@
         .member-status {
             color: #666;
             font-weight: 500;
+            text-align: center;
+        }
+
+        .current-period {
+            text-align: center;
         }
 
         .member-degree {
@@ -169,6 +180,7 @@
         }
 
         .member-contact {
+            font-size: 0.9rem;
             color: #1565C0;
             word-break: break-all;
         }
@@ -228,6 +240,12 @@
                 font-size: 1.2rem;
             }
         }
+
+        .member-info-divider {
+            margin: 8px 0 15px 0;
+            border: none;
+            border-top: 1px solid #0a5aa8;
+        }
     </style>
 </head>
 
@@ -283,8 +301,11 @@
                                 <img src="./images/avatar.png" alt="汤继周教授">
                             </div>
                             <h3 class="professor-name">汤继周</h3>
-                            <p class="professor-title">教授 | 博导 | xxx</p>
+                            <p class="professor-title">同济大学海洋与地球科学学院</p>
+                            <p class="professor-title">教授 | 博导</p>
                             <p class="professor-honor">国家级青年人才</p>
+                            <p class="member-contact">邮箱：
+                                Jeremytang@tongji.edu.cn</p>
                         </div>
                     </div>
                 </div>
@@ -302,11 +323,14 @@
                             <h3 class="member-name">张卓</h3>
                             <div class="member-info">
                                 <p class="member-status">2021年-至今</p>
+                                <hr class="member-info-divider">
                                 <p class="member-degree">硕士毕业于德州农工大学（美国）</p>
+
                                 <p class="member-research">研究方向：岩石力学与多物理场耦合建模方法</p>
                                 <!-- 奖项 -->
-                                <div class="member-award">曾获同济大学研究生优秀学生奖学金（国泰君安筑梦强国奖学金）</div>
                                 <p class="member-contact">邮箱：zzhang6@tongji.edu.cn</p>
+                                <div class="member-award">曾获同济大学研究生优秀学生奖学金（国泰君安筑梦强国奖学金）</div>
+
 
                             </div>
                         </div>
@@ -319,6 +343,7 @@
                             <h3 class="member-name">黄雷</h3>
                             <div class="member-info">
                                 <p class="member-status">2022年-至今</p>
+                                <hr class="member-info-divider">
                                 <p class="member-degree">硕士毕业于中国石油大学（北京）</p>
                                 <p class="member-research">研究方向：基于人工智能的储层“甜点“预测和水力压裂技术优化</p>
                                 <p class="member-contact">邮箱：2210858@tongji.edu.cn</p>
@@ -333,6 +358,7 @@
                             <h3 class="member-name">李柠</h3>
                             <div class="member-info">
                                 <p class="member-status">2023年-至今</p>
+                                <hr class="member-info-divider">
                                 <p class="member-degree">硕士毕业于深圳大学</p>
                                 <p class="member-research">研究方向: 以物模实验为主导的CO₂地质封存、酸化压裂地质资源开发等岩石力学相关工作</p>
                                 <p class="member-contact">邮箱: 2311570@tju.edu.cn</p>
@@ -347,8 +373,9 @@
                             <h3 class="member-name">张敏</h3>
                             <div class="member-info">
                                 <p class="member-status">2023-至今</p>
+                                <hr class="member-info-divider">
                                 <p class="member-degree">硕士毕业于中国地质大学（北京）</p>
-                                <p class="member-research">研究方向：基于多物理场多相耦合的枯竭油气藏H2和CO₂协同封存方法研究</p>
+                                <p class="member-research">研究方向：基于多物理场多相耦合的枯竭油气藏H₂和CO₂协同封存方法研究</p>
                                 <p class="member-contact">邮箱：z_m@tongji.edu.cn</p>
 
                             </div>
@@ -379,9 +406,10 @@
                                 <p class="member-status">2024年-至今</p>
                                 <p class="member-degree">硕士毕业于中国石油大学（北京）</p>
 
-                                <div class="member-award">曾获硕士研究生国家奖学金；北京市优秀毕业生</div>
+
                                 <p class="member-research">研究方向：井筒声学测井理论与方法；井周三维速度分布反演；声波远探测裂缝成像</p>
                                 <p class="member-contact">邮箱：wangzi_ah@163.com</p>
+                                <div class="member-award">曾获硕士研究生国家奖学金；北京市优秀毕业生</div>
 
                             </div>
                         </div>
@@ -394,9 +422,10 @@
                             <div class="member-info">
                                 <p class="member-status">2024年-至今</p>
                                 <p class="member-degree">硕士毕业于华中科技大学</p>
-                                <div class="member-award">曾获硕士研究生国家奖学金等</div>
+
                                 <p class="member-research">研究方向: AI赋能的储层地球物理</p>
                                 <p class="member-contact">邮箱：Zhang fy@tongji.edu.cn</p>
+                                <div class="member-award">曾获硕士研究生国家奖学金等</div>
 
                             </div>
                         </div>
@@ -409,9 +438,10 @@
                             <div class="member-info">
                                 <p class="member-status">2025年-至今</p>
                                 <p class="member-degree">硕士毕业于中国石油大学（北京）</p>
-                                <div class="member-award">曾获中石油奖学金等</div>
+
                                 <p class="member-research">研究方向：数字岩心及微观多相流模拟</p>
                                 <p class="member-contact">邮箱：2511709@tongji.edu.cn</p>
+                                <div class="member-award">曾获中石油奖学金等</div>
 
                             </div>
                         </div>
@@ -424,9 +454,10 @@
                             <div class="member-info">
                                 <p class="member-status">2025年-至今</p>
                                 <p class="member-degree">硕士毕业于中国石油大学（华东）</p>
-                                <div class="member-award">曾获硕士研究生国家奖学金等</div>
                                 <p class="member-research">研究方向：油气藏数值模拟研究</p>
                                 <p class="member-contact">邮箱：tianjq621@163.com</p>
+                                <div class="member-award">曾获硕士研究生国家奖学金等</div>
+
                             </div>
                         </div>
                         <div class="member-card">
@@ -438,9 +469,10 @@
                                 <p class="member-status">2025年-至今</p>
                                 <p class="member-degree">硕士毕业于常州大学</p>
 
-                                <div class="member-award">曾获硕士研究生国家奖学金等</div>
                                 <p class="member-research">研究方向为：CCUS、储层地球物理在非常规油气开发中的应用</p>
                                 <p class="member-contact">邮箱：x13188360082@163.com</p>
+                                <div class="member-award">曾获硕士研究生国家奖学金等</div>
+
                             </div>
                         </div>
                     </div>
@@ -463,9 +495,10 @@
                                 <p class="member-status">2023年-至今</p>
                                 <p class="member-degree">本科毕业于重庆大学</p>
 
-                                <div class="member-award">曾获硕士研究生国家奖学金等</div>
                                 <p class="member-research">研究方向为：基于人工智能的储层岩性刻画</p>
                                 <p class="member-contact">邮箱：lijiayu1120@tongji.edu.cn</p>
+                                <div class="member-award">曾获硕士研究生国家奖学金等</div>
+
                             </div>
                         </div>
                         <div class="member-card">
@@ -476,9 +509,10 @@
                             <div class="member-info">
                                 <p class="member-status">2025年-至今</p>
                                 <p class="member-degree">本科毕业于西南交通大学</p>
-                                <div class="member-award">曾获国家励志奖学金等</div>
                                 <p class="member-research">研究方向：基于DAS的地球物理反演方法</p>
                                 <p class="member-contact">邮箱：puyj030728@163.com</p>
+                                <div class="member-award">曾获国家励志奖学金等</div>
+
 
                             </div>
                         </div>
