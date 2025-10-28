@@ -66,9 +66,7 @@
         }
 
         .professor-photo {
-            width: 200px;
-            height: 280px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 268px;
             border-radius: 8px;
             overflow: hidden;
             margin-bottom: 20px;
@@ -78,6 +76,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            background-position: center;
         }
 
         .professor-name {
@@ -108,18 +107,12 @@
             border-radius: 8px;
             padding: 20px;
             background: white;
-            transition: all 0.3s ease;
         }
 
-        .member-card:hover {
-            box-shadow: 0 4px 12px rgba(10, 90, 168, 0.2);
-            transform: translateY(-2px);
-        }
 
         .member-photo {
             width: 100%;
-            height: 200px;
-            background: #f5f5f5;
+            height: 363px;
             border-radius: 8px;
             margin-bottom: 15px;
             overflow: hidden;
@@ -131,7 +124,7 @@
         .member-photo img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .member-name {
@@ -274,7 +267,7 @@
                     <div class="members-grid">
                         <div class="professor-card">
                             <div class="professor-photo">
-                                <img src="http://iph.href.lu/200x280" alt="汤继周教授">
+                                <img src="./images/avatar.png" alt="汤继周教授">
                             </div>
                             <h3 class="professor-name">汤继周</h3>
                             <p class="professor-title">教授 | 博导 | xxx</p>
@@ -289,54 +282,157 @@
                 <h2 class="team-section-title">博士生</h2>
                 <div class="team-section-content">
                     <div class="members-grid">
-                        <!-- 博士生1 -->
                         <div class="member-card">
                             <div class="member-photo">
-                                <img src="http://iph.href.lu/280x200" alt="博士生照片">
+                                <img src="./images/team/d1-zz.png" alt="硕士生照片">
                             </div>
-                            <h3 class="member-name">张三<span class="graduated-tag">已毕业</span></h3>
+                            <h3 class="member-name">张卓</h3>
                             <div class="member-info">
-                                <p class="member-status">某阶段中</p>
-                                <p class="member-degree">本科毕业于XX大学</p>
-                                <p class="member-degree">硕士毕业于XX大学</p>
-                                <p>毕业去向：XXXXX</p>
-                                <p class="member-contact">联系方式：XXXXXX@tj.edu.cn</p>
-                                <p class="member-research">研究方向：XXXXXXXX</p>
+                                <p class="member-status">2021年-至今</p>
+                                <p class="member-degree">硕士毕业于德州农工大学（美国）</p>
+                                <p class="member-research">研究方向：岩石力学与多物理场耦合建模方法</p>
+                                <!-- 奖项 -->
+                                <div class="member-award">曾获同济大学研究生优秀学生奖学金（国泰君安筑梦强国奖学金）</div>
+                                <p class="member-contact">邮箱：zzhang6@tongji.edu.cn</p>
+
                             </div>
                         </div>
 
-                        <!-- 博士生2 -->
+                        <!-- 硕士生2 -->
                         <div class="member-card">
                             <div class="member-photo">
-                                <img src="http://iph.href.lu/280x200" alt="博士生照片">
+                                <img src="./images/team/d2-hl.png" alt="硕士生照片">
                             </div>
-                            <h3 class="member-name">李四</h3>
+                            <h3 class="member-name">黄雷</h3>
                             <div class="member-info">
-                                <p class="member-status">某阶段中</p>
-                                <p class="member-degree">本科毕业于XX大学</p>
-                                <p class="member-degree">硕士毕业于XX大学</p>
-                                <p class="member-contact">联系方式：XXXXXX@tj.edu.cn</p>
-                                <p class="member-research">研究方向：XXXXXXXX</p>
+                                <p class="member-status">2022年-至今</p>
+                                <p class="member-degree">硕士毕业于中国石油大学（北京）</p>
+                                <p class="member-research">研究方向：基于人工智能的储层“甜点“预测和水力压裂技术优化</p>
+                                <p class="member-contact">邮箱：2210858@tongji.edu.cn</p>
                             </div>
                         </div>
 
-                        <!-- 博士生3 -->
+                        <!-- 硕士生3 -->
                         <div class="member-card">
                             <div class="member-photo">
-                                <img src="http://iph.href.lu/280x200" alt="博士生照片">
+                                <img src="./images/team/d3-ln.png" alt="硕士生照片">
                             </div>
-                            <h3 class="member-name">王五</h3>
+                            <h3 class="member-name">李柠</h3>
                             <div class="member-info">
-                                <p class="member-status">某阶段中</p>
-                                <p class="member-degree">本科毕业于XX大学</p>
-                                <p class="member-degree">硕士毕业于XX大学</p>
-                                <p class="member-contact">联系方式：XXXXXX@tj.edu.cn</p>
-                                <p class="member-research">研究方向：XXXXXXXX</p>
+                                <p class="member-status">2023年-至今</p>
+                                <p class="member-degree">硕士毕业于深圳大学</p>
+                                <p class="member-research">研究方向: 以物模实验为主导的CO2地质封存、酸化压裂地质资源开发等岩石力学相关工作</p>
+                                <p class="member-contact">邮箱: 2311570@tju.edu.cn</p>
+                            </div>
+                        </div>
+
+                        <!-- 硕士生4 -->
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <img src="./images/team/d4-zm.png" alt="硕士生照片">
+                            </div>
+                            <h3 class="member-name">张敏</h3>
+                            <div class="member-info">
+                                <p class="member-status">2023-至今</p>
+                                <p class="member-degree">硕士毕业于中国地质大学（北京）</p>
+                                <p class="member-research">研究方向：基于多物理场多相耦合的枯竭油气藏H2和CO2协同封存方法研究</p>
+                                <p class="member-contact">邮箱：z_m@tongji.edu.cn</p>
+
+                            </div>
+                        </div>
+
+                        <!-- 硕士生5 -->
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <img src="./images/team/d5-sw.png" alt="硕士生照片">
+                            </div>
+                            <h3 class="member-name">司维</h3>
+                            <div class="member-info">
+                                <p class="member-status">2024年-至今</p>
+                                <p class="member-degree">硕士毕业于北京信息科技大学</p>
+
+                                <p class="member-research">研究方向：储层二次开发利用、增产改造</p>
+                                <p class="member-contact">邮箱：siwei_2021@163.com</p>
+                            </div>
+                        </div>
+
+                        <!-- 硕士生6 -->
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <img src="./images/team/d6-wz.png" alt="硕士生照片">
+                            </div>
+                            <h3 class="member-name">王梓</h3>
+                            <div class="member-info">
+                                <p class="member-status">2024年-至今</p>
+                                <p class="member-degree">硕士毕业于中国石油大学（北京）</p>
+
+                                <div class="member-award">曾获硕士研究生国家奖学金；北京市优秀毕业生</div>
+                                <p class="member-research">研究方向：井筒声学测井理论与方法；井周三维速度分布反演；声波远探测裂缝成像</p>
+                                <p class="member-contact">邮箱：wangzi_ah@163.com</p>
+
+                            </div>
+                        </div>
+
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <img src="./images/team/d7-zfy.png" alt="硕士生照片">
+                            </div>
+                            <h3 class="member-name">张峰源</h3>
+                            <div class="member-info">
+                                <p class="member-status">2024年-至今</p>
+                                <p class="member-degree">硕士毕业于华中科技大学</p>
+                                <div class="member-award">曾获硕士研究生国家奖学金等</div>
+                                <p class="member-research">研究方向: AI赋能的储层地球物理</p>
+                                <p class="member-contact">邮箱：Zhang fy@tongji.edu.cn</p>
+
+                            </div>
+                        </div>
+
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <img src="./images/team/d8-myf.png" alt="硕士生照片">
+                            </div>
+                            <h3 class="member-name">孟雨凡</h3>
+                            <div class="member-info">
+                                <p class="member-status">2025年-至今</p>
+                                <p class="member-degree">硕士毕业于中国石油大学（北京）</p>
+                                <div class="member-award">曾获中石油奖学金等</div>
+                                <p class="member-research">研究方向：数字岩心及微观多相流模拟</p>
+                                <p class="member-contact">邮箱：2511709@tongji.edu.cn</p>
+
+                            </div>
+                        </div>
+
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <img src="./images/team/d9-tjq.png" alt="硕士生照片">
+                            </div>
+                            <h3 class="member-name">田健泉</h3>
+                            <div class="member-info">
+                                <p class="member-status">2025年-至今</p>
+                                <p class="member-degree">硕士毕业于中国石油大学（华东）</p>
+                                <div class="member-award">曾获硕士研究生国家奖学金等</div>
+                                <p class="member-research">研究方向：油气藏数值模拟研究</p>
+                                <p class="member-contact">邮箱：tianjq621@163.com</p>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <img src="./images/team/d10-xbh.png" alt="硕士生照片">
+                            </div>
+                            <h3 class="member-name">先毕华</h3>
+                            <div class="member-info">
+                                <p class="member-status">2025年-至今</p>
+                                <p class="member-degree">硕士毕业于常州大学</p>
+
+                                <div class="member-award">曾获硕士研究生国家奖学金等</div>
+                                <p class="member-research">研究方向为：CCUS、储层地球物理在非常规油气开发中的应用</p>
+                                <p class="member-contact">邮箱：x13188360082@163.com</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
 
             <!-- 硕士生 -->
             <div class="team-section">
@@ -344,86 +440,33 @@
                 <div class="team-section-content">
                     <div class="members-grid">
                         <!-- 硕士生1 -->
+                     
                         <div class="member-card">
                             <div class="member-photo">
-                                <img src="http://iph.href.lu/280x200" alt="硕士生照片">
+                                <img src="./images/team/s11-ljy.png" alt="硕士生照片">
                             </div>
-                            <h3 class="member-name">赵六</h3>
+                            <h3 class="member-name">李佳宇</h3>
                             <div class="member-info">
-                                <p class="member-status">某阶段中</p>
-                                <p class="member-degree">本科毕业于XX大学</p>
-                                <p class="member-contact">联系方式：XXXXXX@tj.edu.cn</p>
-                                <p class="member-research">研究方向：XXXXXXXX</p>
+                                <p class="member-status">2023年-至今</p>
+                                <p class="member-degree">本科毕业于重庆大学</p>
+
+                                <div class="member-award">曾获硕士研究生国家奖学金等</div>
+                                <p class="member-research">研究方向为：基于人工智能的储层岩性刻画</p>
+                                <p class="member-contact">邮箱：lijiayu1120@tongji.edu.cn</p>
                             </div>
                         </div>
-
-                        <!-- 硕士生2 -->
                         <div class="member-card">
                             <div class="member-photo">
-                                <img src="http://iph.href.lu/280x200" alt="硕士生照片">
+                                <img src="./images/team/s12-pyj.png" alt="硕士生照片">
                             </div>
-                            <h3 class="member-name">钱七</h3>
+                            <h3 class="member-name">蒲禹君</h3>
                             <div class="member-info">
-                                <p class="member-status">某阶段中</p>
-                                <p class="member-degree">本科毕业于XX大学</p>
-                                <p class="member-contact">联系方式：XXXXXX@tj.edu.cn</p>
-                                <p class="member-research">研究方向：XXXXXXXX</p>
-                            </div>
-                        </div>
+                                <p class="member-status">2025年-至今</p>
+                                <p class="member-degree">本科毕业于西南交通大学</p>
+                                <div class="member-award">曾获国家励志奖学金等</div>
+                                <p class="member-research">研究方向：基于DAS的地球物理反演方法</p>
+                                <p class="member-contact">邮箱：puyj030728@163.com</p>
 
-                        <!-- 硕士生3 -->
-                        <div class="member-card">
-                            <div class="member-photo">
-                                <img src="http://iph.href.lu/280x200" alt="硕士生照片">
-                            </div>
-                            <h3 class="member-name">孙八</h3>
-                            <div class="member-info">
-                                <p class="member-status">某阶段中</p>
-                                <p class="member-degree">本科毕业于XX大学</p>
-                                <p class="member-contact">联系方式：XXXXXX@tj.edu.cn</p>
-                                <p class="member-research">研究方向：XXXXXXXX</p>
-                            </div>
-                        </div>
-
-                        <!-- 硕士生4 -->
-                        <div class="member-card">
-                            <div class="member-photo">
-                                <img src="http://iph.href.lu/280x200" alt="硕士生照片">
-                            </div>
-                            <h3 class="member-name">周九</h3>
-                            <div class="member-info">
-                                <p class="member-status">某阶段中</p>
-                                <p class="member-degree">本科毕业于XX大学</p>
-                                <p class="member-contact">联系方式：XXXXXX@tj.edu.cn</p>
-                                <p class="member-research">研究方向：XXXXXXXX</p>
-                            </div>
-                        </div>
-
-                        <!-- 硕士生5 -->
-                        <div class="member-card">
-                            <div class="member-photo">
-                                <img src="http://iph.href.lu/280x200" alt="硕士生照片">
-                            </div>
-                            <h3 class="member-name">吴十</h3>
-                            <div class="member-info">
-                                <p class="member-status">某阶段中</p>
-                                <p class="member-degree">本科毕业于XX大学</p>
-                                <p class="member-contact">联系方式：XXXXXX@tj.edu.cn</p>
-                                <p class="member-research">研究方向：XXXXXXXX</p>
-                            </div>
-                        </div>
-
-                        <!-- 硕士生6 -->
-                        <div class="member-card">
-                            <div class="member-photo">
-                                <img src="http://iph.href.lu/280x200" alt="硕士生照片">
-                            </div>
-                            <h3 class="member-name">郑十一</h3>
-                            <div class="member-info">
-                                <p class="member-status">某阶段中</p>
-                                <p class="member-degree">本科毕业于XX大学</p>
-                                <p class="member-contact">联系方式：XXXXXX@tj.edu.cn</p>
-                                <p class="member-research">研究方向：XXXXXXXX</p>
                             </div>
                         </div>
                     </div>
