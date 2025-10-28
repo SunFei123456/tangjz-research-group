@@ -137,79 +137,92 @@
             padding: 0 15px;
         }
 
-        /* 联系方式卡片 */
-        .contact-card {
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-            justify-content: start;
-            background: white;
-            border-radius: 8px;
-            padding: 30px;
-            margin-top: 30px;
+        /* 新版内容结构 */
+        .sections-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .info-section {
+            background: #ffffff;
             border: 1px solid #e0e0e0;
-        }
-
-        .contact-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .contact-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .contact-item {
-            padding: 12px 0;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-item i {
-            margin-right: 15px;
-            font-size: 1.3rem;
-        }
-
-        .contact-item a {
-            color: #1a1a1a;
-            transition: color 0.3s;
-        }
-
-        .contact-item a:hover {
-            color: #0a5aa8;
-        }
-
-        /* 网站链接 */
-        .website-links {
-            background: white;
             border-radius: 8px;
-            padding: 15px 20px;
-            border: 1px solid #1565C0;
-            margin: 1rem 0rem;
+            padding: 20px 24px;
         }
 
-        .website-links p {
-            margin: 8px 0;
-            line-height: 1.8;
-        }
-
-        .website-links a {
+        .section-title {
+            margin: 0 0 1rem 0;
+            font-size: 1.25rem;
+            font-weight: 600;
             color: #0a5aa8;
-            text-decoration: underline;
-            transition: color 0.3s;
         }
 
-        .website-links a:hover {
-            color: #1565C0;
+        .section-text {
+            line-height: 1.8;
+            font-size: 15px;
+            margin: 1.2rem 0rem 0rem 0rem;
         }
+
+        .bullet-list {
+            margin: 6px 0 0 0;
+            padding-left: 0;
+            line-height: 1.8;
+            font-size: 15px;
+            list-style: none;
+        }
+
+        .bullet-list li {
+            position: relative;
+            margin-left: 16px;
+            padding-left: 16px;
+            margin: 1.2rem 1rem;
+        }
+
+        .bullet-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.9em;
+            width: 6px;
+            height: 6px;
+            background: #000;
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        .kv-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+            font-size: 15px;
+        }
+
+        .kv-table th,
+        .kv-table td {
+            border: 1px solid #e0e0e0;
+            padding: 10px 12px;
+            vertical-align: top;
+        }
+
+        .kv-table thead th {
+            background: #f6f9fc;
+            color: #0a5aa8;
+            font-weight: 600;
+        }
+
+        .note {
+            color: #D32F2F;
+            font-weight: 600;
+        }
+
+      
 
         /* 响应式设计 */
         @media (max-width: 768px) {
+            .bullet-list li{
+                margin: 0.8em 0px;
+            }
             .container {
                 padding: 0 15px;
             }
@@ -241,17 +254,15 @@
                 padding-left: 5px;
             }
 
-            .contact-card {
-                padding: 20px;
-            }
-
-            .contact-title {
-                font-size: 1.3rem;
-            }
-
-            .contact-item {
-                font-size: 1rem;
-            }
+        }
+        .bullet-list-end{
+            margin-left: 10px;
+            padding-left: 10px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .bullet-list-end li{
+            margin: 0.8em 0px;
         }
     </style>
 </head>
@@ -299,155 +310,158 @@
     <div class="container">
         <!-- 页面标题 -->
         <div class="page-header">
-            <h1 class="page-title">同济大学MIAS Group招生招聘组则（2025年2月更新）</h1>
-            <p class="page-subtitle">诚邀优秀的你加入入我们，共同探索前沿科技，开拓创新未来！</p>
+            <h1 class="page-title">同济大学-汤继周教授课题组 | 研究生招生简章</h1>
+            <p class="page-subtitle">欢迎具备交叉学科创新思维与工程实践能力的同学加入</p>
         </div>
 
-        <!-- 网站链接 -->
-        <div class="website-links">
-            <p><strong>我的中文主页：</strong><a href="http://see.tongji.edu.cn/info/1376/10427.htm"
-                    target="_blank">see.tongji.edu.cn/info/1376/10427.htm</a></p>
-            <p><strong>我的英文主页：</strong><a href="https://www.ruirangerfan.com"
-                    target="_blank">www.ruirangerfan.com</a>（部署在 github，建议使用科学上网工具）</p>
-            <p><strong>课题组主页：</strong><a href="https://mias.group" target="_blank">mias.group</a></p>
+        <div class="sections-wrapper">
+            <section class="info-section">
+                <h2 class="section-title">简介</h2>
+                <p class="section-text">
+                    <strong style="color: #D32F2F;">汤继周</strong>，男，同济大学海洋与地球科学学院<strong>长聘教授</strong>、博导，国家级青年人才（2021）、上海市海外高层次人才（2020）、上海市“科技创新行动计划”启明星项目（A类）入选者。主持国家自然科学基金重点项目、国家科技重大专项青年科学家项目，2024年获
+                    ECF能源技术创新奖（国际奖）、辽宁省自然科学二等奖。课题组长期聚焦<strong>人工智能驱动的非常规油气开发</strong> （页岩/致密油气）与<strong>地下能源存储</strong>（储气库/CO₂封存）方向，攻克多物理场耦合模拟、地质-工程-信息一体化等关键技术，开发的<strong>自主知识产权软件GeoFractureV1.0</strong> 已在国内头部油企应用。在<strong>PNAS, The Innovation Energy, Energy, Engineering Geology, SPE Journal</strong> 等行业顶刊累计发表论文80余篇（一作/通讯<strong> 40篇 </strong>），授权专利/软著31项。
+                </p>
+            </section>
+
+            <section class="info-section">
+                <h2 class="section-title">教育背景</h2>
+                <table class="kv-table">
+                    <thead>
+                        <tr>
+                            <th>时间</th>
+                            <th>学校</th>
+                            <th>专业</th>
+                            <th>学位</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2018年-2020年</td>
+                            <td>哈佛大学</td>
+                            <td>应用物理系</td>
+                            <td>博士后</td>
+                        </tr>
+                        <tr>
+                            <td>2013年-2018年</td>
+                            <td>德州农工大学</td>
+                            <td>石油工程</td>
+                            <td>博士</td>
+                        </tr>
+                        <tr>
+                            <td>2011年-2012年</td>
+                            <td>美国哥伦比亚大学</td>
+                            <td>机械工程</td>
+                            <td>硕士</td>
+                        </tr>
+                        <tr>
+                            <td>2007年-2011年</td>
+                            <td>西安交通大学</td>
+                            <td>机械工程</td>
+                            <td>本科</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="info-section">
+                <h2 class="section-title">学术任职</h2>
+                <ul class="bullet-list">
+                    <li>《Petroleum Science》（中科院大类 <strong style="text-decoration: underline;">1区top</strong>） <strong>副主编</strong></li>
+                    <li>《Geoenergy Science and Engineering》（能源顶刊） <strong>副主编</strong></li>
+                    <li>《石油勘探与开发》（中科院大类 <strong style="text-decoration: underline;">1区top</strong>） 编委</li>
+                    <li>《Scientific Reports》（中科院大类3区） 编委</li>
+                    <li>《测井技术》（地球物理核心刊物） 编委</li>
+                </ul>
+            </section>
+
+            <section class="info-section">
+                <h2 class="section-title">研究方向</h2>
+                <ul class="bullet-list">
+                    <li>AI4S & E赋能的地质工程一体化研究</li>
+                    <li>深地流-固-热-化多场耦合的深部岩石力学理论</li>
+                    <li>基于物探-测井信号融合的储层评价与油藏产能模拟</li>
+                    <li>面向深地储层改造的智能压裂设计与效果评估</li>
+                    <li>多相流体运移高性能计算模拟与枯竭油气藏工程固碳</li>
+                    <li>多模态大模型理论与技术在地质能源领域的应用</li>
+                    <li>图表征学习理论与先验知识约束的深度学习方法</li>
+                </ul>
+            </section>
+
+            <section class="info-section">
+                <h2 class="section-title">招生要求</h2>
+                <table class="kv-table">
+                    <thead>
+                        <tr>
+                            <th>目标专业类别</th>
+                            <th>需求专业技能</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>人工智能</td>
+                            <td>多模态语义处理、大模型理论与技术、ML & DL模型</td>
+                        </tr>
+                        <tr>
+                            <td>应用物理</td>
+                            <td>力学（断裂力学）、多相流模拟、多物理场耦合建模</td>
+                        </tr>
+                        <tr>
+                            <td>控制工程</td>
+                            <td>多源异构信号分析、状态感知与智能决策、反馈控制</td>
+                        </tr>
+                        <tr>
+                            <td>机械工程</td>
+                            <td>工程数值建模与设计优化、人机协同作业、边缘计算</td>
+                        </tr>
+                        <tr>
+                            <td>石油工程</td>
+                            <td>非常规油气资源开发、地质工程一体化、碳封存</td>
+                        </tr>
+                        <tr>
+                            <td>土木工程</td>
+                            <td>岩土力学、地下工程、工程监测、矿业工程</td>
+                        </tr>
+                        <tr>
+                            <td>地球物理</td>
+                            <td>测井与物探解释、储层评价、工程地质建模与评估</td>
+                        </tr>
+                        <tr>
+                            <td>其他</td>
+                            <td>与本课题组研究相关的其他技能</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="section-text">
+                    <strong>博士研究生申请条件：</strong>在本领域高水平 <strong>SCI期刊上</strong> （中科院<strong style="text-decoration: underline;">大类2区</strong>及以上，<strong>非OA</strong>）发表论文<strong>1篇</strong>，且已发表学术论文<strong>总数≥2篇</strong>；<strong>英语CET6</strong> 或 <strong>雅思6.5分</strong>及以上。欢迎具备交叉学科创新思维和工程实践能力的多学科交叉方向学生报考（要求：踏实勤奋、乐观开朗，具备团队协作经历）。
+                </p>
+            </section>
+
+            <section class="info-section">
+                <h2 class="section-title">培养资源</h2>
+                <ul class="bullet-list">
+                    <li>高质量科研成果产出（领域顶刊、发明专利、软著、挑战杯等科研赛事国奖）</li>
+                    <li>全球顶尖高校交流和联合培养机会（哈佛、斯坦福、帝国理工等欧美高校）</li>
+                    <li>业内头部公司深度合作与工作内推</li>
+                    <li>具有行业竞争力的科研津贴与项目绩效</li>
+                    <li>自主选择参与国际会议（全额资助）</li>
+                    <li>稀缺深地数据、岩样与高水平联合实验室支持</li>
+                    <li>高性能计算平台资源</li>
+                </ul>
+            </section>
+
+            <section class="info-section">
+                <h2 class="section-title">申请方式</h2>
+                <p class="section-text">📩 邮箱：<a style="color: #0a5aa8;"
+                        href="mailto:Jeremytang@tongji.edu.cn">Jeremytang@tongji.edu.cn</a>（申请邮件标题：2026博士申请-姓名-毕业院校）</p>
+                <p class="section-text">✨ 申请内容：邮件附件至少包括以下材料及必要支撑材料：</p>
+                <ul class="bullet-list-end">
+                    <li>① <strong>个人简历 : </strong> 包含本科-硕士阶段成绩单、研究方向与内容概要、已取得的相关学术成果或经历、个人荣誉等</li>
+                    <li>② <strong>攻博计划书 : </strong> 介绍博士阶段拟开展的研究（应图文并茂），重点突出硕士阶段研究对博士阶段计划的支持作用</li>
+                </ul>
+            </section>
         </div>
 
-        <div class="recruitment-container">
-            <!-- 博士研究生 -->
-            <div class="recruitment-card">
-                <h2 class="recruitment-title">一、博士研究生：</h2>
-                <div class="recruitment-content">
-                    <ul class="recruitment-list">
-                        <li class="recruitment-item">一般情况下，我每年招收<strong>2名博士生</strong>。</li>
-                        <li class="recruitment-item">通常仅考虑已经在<strong>CCF推荐期刊/会议或IEEE/ACM/ASME
-                                Trans</strong>上发表过<strong>一作论文</strong>的同学。</li>
-                        <li class="recruitment-item">
-                            目前，我们亟需这几个方向的博士生:<strong>1.
-                                多模态传感器外参标定、</strong><strong> 2. 感知与定位算法(空间理解、内容理解)、</strong><strong> 3.
-                                新概念机器人(新结构、新传感器、新算法等)。
-                            </strong>
-                        </li>
-                        <li class="recruitment-item">
-                            直博生(学制5.5年)请报考电子与信息工程学院(在嘉定)，普博生(学制4年)可报考电子与信息工程学院或自主智能无人系统
-                            科学中心鍛邯哨½¼砂在张江)</li>
-                        <li class="recruitment-item">我期待每位博士生都能提前毕业，尽早步入职场，但这需要我们共同努力!</li>
-                        <li class="recruitment-item">我考量候选人的优先级: <strong>性格>能力>>成绩，勤奋>天赋</strong>。</li>
-                        <li class="recruitment-item"><span
-                                class="red-text">请通过这个链接申请(提交后会即时通知我)，勿直接发送邮件，因为一封简历和大段的文字不足以让我全面了解你!</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 硕士研究生 -->
-            <div class="recruitment-card">
-                <h2 class="recruitment-title">二、硕士研究生：</h2>
-                <div class="recruitment-content">
-                    <ul class="recruitment-list">
-                        <li class="recruitment-item">
-                            一般情况下，我每年有<strong>3-4个硕士生名额</strong>。但我并不会为了用满名额而招生，因此每年实际录取人数通常少于计划招生人数。
-                        </li>
-                        <li class="recruitment-item">
-                            我对硕士生和博士生的要求基本一致，因此更倾向于招收学术型硕士。在硕士期间，你需要专注于发表一作学术论文
-                        </li>
-                        <li class="recruitment-item">
-                            硕转博的名额通常较为紧张(需同时占用硕士和博士的招生名额)，但我非常支持你出国深造。
-                        </li>
-                        <li class="recruitment-item">
-                            我<strong>不支持</strong>研究生私自外出实习，但我与国内顶尖高校及蔚来、大疆等知名企业保持着良好的合作关系。因此，如果我认为实习对你的科研和职业发展有必要，我会亲自为你安排。
-                        </li>
-                        <li class="recruitment-item">
-                            如果你通过推免加入课题组，我要求你在大四期间于同济大学完成毕业设计，并完成一篇一作学术论文，该论文也将作为你硕士学位论文的一个章节。
-                        </li>
-                        <li class="recruitment-item">
-                            我考量候选人的优先级: <strong>性格>能力>>成绩，勤奋>天赋。</strong>
-                        </li>
-                        <li class="recruitment-item">
-                            如果同济大学和MIAS Group不是你的第一选择，我们无需浪费彼此的时间。
-                        </li>
-
-                        <li class="recruitment-item"><span
-                                class="red-text">请通过这个链接申请(提交后会即时通知我)，勿直接发送邮件，因为一封简历和大段的文字不足以让我全面了解你!</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 博士后 -->
-            <div class="recruitment-card">
-                <h2 class="recruitment-title">三、博士后：</h2>
-                <div class="recruitment-content">
-                    <ul class="recruitment-list">
-                        <li class="recruitment-item">
-                            我希望你在加入课题组的几年里，能够积累足够的科研成果，为未来的发展奠定坚实基础。同时，我也期待你能留校、长期共事，这需要我们共同努力！
-                        </li>
-                        <li class="recruitment-item">
-                            目前，我们亟需这几个方向的博士后：1. 多模态传感器外参标定、2. 感知与定位算法（空间理解、内容理解）、3. 新概念机器人（新结构、新传感器、新算法等）。
-                        </li>
-                        <li class="recruitment-item">
-                            博士后实行年薪制 + 绩效制，<strong>基本年薪 30 万</strong>（课题组刚起步，只能提供这么多 /(ToT)/~~，希望我能拿到更多
-                            funding，发更多工资），另有学术成果奖励在基本年薪基础上根据年度成果再增加。
-                        </li>
-                        <li class="recruitment-item">
-                            支持申请 “博新计划”、上海市 “超级博士后” 等博士后人才计划，国家自然科学青年基金以及其它国家与地方的科技项目和博士后资助项目。
-                        </li>
-                        <li class="recruitment-item">
-                            博士后可选择租住学校博士后公寓，享受职工同等的医疗保障待遇，入站即可获得上海集体户口，子女可入读同济大学幼儿园。
-                        </li>
-                        <li class="recruitment-item"><span
-                                class="red-text">请通过这个链接申请（提交后会即时通知我），勿直接发送邮件，因为一封简历和大段的文字不足以让我全面了解你！</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 本科实习生 -->
-            <div class="recruitment-card">
-                <h2 class="recruitment-title">四、本科实习生：</h2>
-                <div class="recruitment-content">
-                    <ul>
-                        <li class="recruitment-item">
-                            随着近年来课题组的不断发展, 我用于指导本科生科研的时间已非常有限。 因此,
-                            目2024年9月起,申请加入课题组的本科实习生需首先跟随研究生进行至少6个月的实习。对于进展顺利的同学,我将安排独立的研究课题。
-
-                        </li>
-                        <li class="recruitment-item"><span class="red-text">请通过这个链接甲请(提交后会即时通知找)。</span></li>
-
-                    </ul>
-
-                </div>
-            </div>
-
-            <!-- 研究助理 -->
-            <div class="recruitment-card">
-                <h2 class="recruitment-title">五、研究助理：</h2>
-                <div class="recruitment-content">
-                    <ul class="recruitment-list">
-                        <li class="recruitment-item">研究助理岗位为<strong class="red-text">全职工作，工资不低于6500元/月（包括五险一金）</strong>。
-                        </li>
-                        <li class="recruitment-item">有意报考本课题组硕/博土研究生者优先。</li>
-                        <li class="recruitment-item">大约一半的时间需要围绕课题组的项日开展工作。</li>
-                        <li class="recruitment-item">你可以直接发邮件给找。</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- 联系方式 -->
-        <div class="contact-card">
-            <h2 class="contact-title">联系方式</h2>
-            <ul class="contact-list">
-                <li class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>021-65982273</span>
-                </li>
-                <li class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:jeremytang@tongji.edu.cn">jeremytang@tongji.edu.cn</a>
-                </li>
-                <li class="contact-item">
-                    <i class="fas fa-building"></i>
-                    <a href="https://mgg.tongji.edu.cn" target="_blank">https://mgg.tongji.edu.cn</a>
-                </li>
-            </ul>
-        </div>
+      
     </div>
 
     <!-- 页脚 -->

@@ -6,6 +6,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+strong{
+  color: #000;
+}
 
 a {
   text-decoration: none;
